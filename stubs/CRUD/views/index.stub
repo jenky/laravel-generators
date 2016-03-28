@@ -1,0 +1,40 @@
+@extends('layouts.base')
+
+@section('content')
+<section class="panel">
+    <header class="panel-heading">
+        <h2 class="panel-title">{{ trans('DummyResourceName.DummyResourceNamePlural') }}</h2>
+    </header>
+    <div class="panel-body">
+
+        @include('flash::message')
+
+        @if (!$DummyResourceNamePlural->isEmpty())
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($DummyResourceNamePlural as $DummyResourceName)
+                            <tr id="DummyResourceName-{{ $DummyResourceName->id }}">
+                                <td class="actions">
+                                    <a href="{{ route('DummyRouteName.edit', [$DummyResourceName->id]) }}"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ route('DummyRouteName.destroy', [$DummyResourceName->id]) }}" class="ajaxRemove" data-params="{{ json_encode(['_token' => csrf_token()]) }}"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        {!! $DummyResourceNamePlural->links() !!}
+                    </tfoot>
+                </table>
+            </div>
+        @else
+            <div class="text-center">{{ trans('DummyResourceName.empty') }}</div>
+        @endif
+    </div>
+</section>
+@endsection

@@ -1,0 +1,75 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use DummyRootNamespaceHttp\Controllers\API\Controller;
+use DummyModelClass;
+
+class DummyClass extends Controller
+{
+    /**
+     * The resource name.
+     * 
+     * @var string
+     */
+    protected $resource = 'DummyResourceName';
+
+    /**
+     * Display a listing of the DummyResourceName.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @return \Illuminate\Http\Response
+     */
+    public function index(DummyResourceClass $DummyResourceName)
+    {
+        return $this->listResources($DummyResourceName);
+    }
+
+    /**
+     * Store a newly created DummyResourceName in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified DummyResourceName.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(DummyResourceClass $DummyResourceName, $id)
+    {
+        return $this->findResource($DummyResourceName, $id);
+    }
+
+    /**
+     * Update the specified DummyResourceName in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, DummyResourceClass $DummyResourceName, $id)
+    {
+        return $this->updateResource($DummyResourceName, $id, $request->all());
+    }
+
+    /**
+     * Remove the specified DummyResourceName from storage.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(DummyResourceClass $DummyResourceName, $id)
+    {
+        return $this->deleteResource($DummyResourceName, $id);
+    }
+}

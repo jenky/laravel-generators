@@ -1,0 +1,136 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyRootNamespaceHttp\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class DummyClass extends Controller
+{
+    /**
+     * Display a listing of the DummyResourceName.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @return \Illuminate\Http\Response
+     */
+    public function index(DummyResourceClass $DummyResourceName)
+    {
+        $DummyResourceNamePlural = $DummyResourceName->paginate();
+
+        return view('DummyViewPath.index', compact($DummyResourceNamePlural));
+    }
+
+    /**
+     * Show the form for creating a new DummyResourceName.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @return \Illuminate\Http\Response
+     */
+    public function create(DummyResourceClass $DummyResourceName)
+    {
+        return view('DummyViewPath.edit', $this->getViewParams($DummyResourceName));
+    }
+
+    /**
+     * Store a newly created DummyResourceName in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \DummyModelClass $DummyResourceName
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, DummyResourceClass $DummyResourceName)
+    {
+        if ($DummyResourceName->create($request->all())) {
+            flash()->success(trans('DummyResourceName.created'));
+        } else {
+            flash()->error(trans('error.whoops'));
+            return back();
+        }
+
+        return redirect()->route('DummyRouteName.index');
+    }
+
+    /**
+     * Display the specified DummyResourceName.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(DummyResourceClass $DummyResourceName, $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified DummyResourceName.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(DummyModelClass $DummyResourceName, $id)
+    {
+        $DummyResourceName = $DummyResourceName->findOrFail($id);
+
+        return view('DummyViewPath.edit', $this->getViewParams($DummyResourceName));
+    }
+
+    /**
+     * Update the specified DummyResourceName in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \DummyModelClass $DummyResourceName
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, DummyModelClass $DummyResourceName, $id)
+    {
+        if ($DummyResourceName->create($request->all())) {
+            flash()->success(trans('DummyResourceName.updated'));
+        } else {
+            flash()->error(trans('error.whoops'));
+            return back();
+        }
+
+        return redirect()->route('DummyRouteName.index');
+    }
+
+    /**
+     * Remove the specified DummyResourceName from storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, $id)
+    {
+        DummyResourceName::destroy($id);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'message'  => trans('DummyResourceName.deleted'),
+                'redirect' => route('DummyRouteName.index'),
+            ]);
+        }
+
+        flash()->success(trans('DummyResourceName.deleted'));
+
+        return redirect()->route('DummyRouteName.index');
+    }
+
+    /**
+     * Get create or add view params.
+     *
+     * @param  \DummyModelClass $DummyResourceName
+     * @return array
+     */
+    protected function getViewParams(DummyResourceClass $DummyResourceName)
+    {
+        $url = $DummyResourceName->id
+            ? route('DummyRouteName.update', [$DummyResourceName->id])
+            : route('DummyRouteName.store');
+
+        return compact('DummyResourceName', 'url');
+    }
+}

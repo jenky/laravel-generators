@@ -1,0 +1,30 @@
+@extends('layouts.base')
+
+@section('content')
+<section class="panel">
+    <header class="panel-heading">
+        <h2 class="panel-title">{{ trans('DummyResourceName.create') }}</h2>
+    </header>
+    <div class="panel-body">
+        {!! Form::model($DummyResourceName, [
+            'url' => $url,
+            'role' => 'form',
+            'method' => $DummyResourceName->id ? 'PUT' : 'POST',
+            'class' => 'form-horizontal'
+        ]) !!}
+
+            @include('partials.form_errors')
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    {!! Form::submit(trans('ui.submit'), [
+                        'class' => 'btn btn-primary',
+                    ]) !!}
+                    {!! link_to_route('DummyRouteName.index', trans('ui.cancel'), [], ['class' => 'btn btn-default']) !!}
+                </div>
+            </div>
+
+        {!! Form::close() !!}
+    </div>
+</section>
+@endsection

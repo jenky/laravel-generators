@@ -1,0 +1,27 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyModelClass;
+use Illuminate\Http\Request;
+
+class DummyClass extends Manager
+{
+    /**
+     * Class constructor.
+     *
+     * @param DummyModelClass $DummyResourceName
+     */
+    public function __construct(DummyModelName $DummyResourceName)
+    {
+        $this->model = $DummyResourceName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function handle(Request $request)
+    {
+        $this->model->fill($request->all());
+    }
+}
