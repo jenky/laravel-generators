@@ -26,7 +26,8 @@ class ViewMakeCommand extends Command
     /**
      * Create a new controller creator command instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param \Illuminate\Filesystem\Filesystem $files
+     *
      * @return void
      */
     public function __construct(Filesystem $files, Config $config)
@@ -100,7 +101,8 @@ class ViewMakeCommand extends Command
     /**
      * Get the destination path.
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return string
      */
     protected function getPath($name)
@@ -111,7 +113,8 @@ class ViewMakeCommand extends Command
     /**
      * Get stub path for give view.
      *
-     * @param  string $view
+     * @param string $view
+     *
      * @return string
      */
     protected function getStubPath($view)
@@ -124,12 +127,13 @@ class ViewMakeCommand extends Command
     /**
      * Build the directory for the view if necessary.
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return string
      */
     protected function makeDirectory($path)
     {
-        if (! $this->files->isDirectory($path)) {
+        if (!$this->files->isDirectory($path)) {
             $this->files->makeDirectory($path, 0777, true, true);
         }
     }
@@ -137,7 +141,8 @@ class ViewMakeCommand extends Command
     /**
      * Generate views.
      *
-     * @param  mixed $views
+     * @param mixed $views
+     *
      * @return void
      */
     protected function generateViews($views)
@@ -152,7 +157,8 @@ class ViewMakeCommand extends Command
     /**
      * Generate view with give resource name.
      *
-     * @param  string $view
+     * @param string $view
+     *
      * @return void
      */
     protected function generateView($view)
@@ -167,8 +173,9 @@ class ViewMakeCommand extends Command
     /**
      * Replace the resource name for the given stub.
      *
-     * @param  string $stub
-     * @param  string $name
+     * @param string $stub
+     * @param string $name
+     *
      * @return $this
      */
     protected function replaceResourceName(&$stub, $name)
