@@ -18,10 +18,10 @@ class ModelMakeCommand extends BaseModelMakeCommand
     protected function getStub()
     {
         if ($this->option('soft-deletes')) {
-            return $this->stubPath('model.soft_deletes.stub');
+            return __DIR__.'/../../../stubs/model.soft_deletes.stub';
         }
 
-        return $this->stubPath('model.stub');
+        return __DIR__.'/../../../stubs/model.stub';
     }
 
     /**
