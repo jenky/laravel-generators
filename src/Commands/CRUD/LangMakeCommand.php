@@ -55,7 +55,8 @@ class LangMakeCommand extends FileGenerator
     /**
      * Generate content for language file.
      *
-     * @param  string $resource
+     * @param string $resource
+     *
      * @return string
      */
     protected function createFile($resource)
@@ -78,7 +79,6 @@ class LangMakeCommand extends FileGenerator
         $stub = str_replace(
             'DummyResourceStudly', Str::studly($resource), $stub
         );
-
 
         return $stub;
     }

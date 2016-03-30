@@ -26,7 +26,8 @@ class FileGenerator extends Command
     /**
      * Class constructor.
      *
-     * @param  \Illuminate\Filesystem\Filesystem $files
+     * @param \Illuminate\Filesystem\Filesystem $files
+     *
      * @return void
      */
     public function __construct(Filesystem $files, Config $config)
@@ -62,12 +63,13 @@ class FileGenerator extends Command
     /**
      * Build the directory if necessary.
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return string
      */
     protected function makeDirectory($path)
     {
-        if (! $this->files->isDirectory($path)) {
+        if (!$this->files->isDirectory($path)) {
             $this->files->makeDirectory($path, 0777, true, true);
         }
     }
