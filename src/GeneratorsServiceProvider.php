@@ -26,6 +26,7 @@ class GeneratorsServiceProvider extends ServiceProvider
         $this->registerContractGenerator();
         $this->registerTransformerGenerator();
         $this->registerViewGenerator();
+        $this->registerLangGenerator();
     }
 
     /**
@@ -106,7 +107,7 @@ class GeneratorsServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:transformer command.
+     * Register the crud:view command.
      */
     protected function registerViewGenerator()
     {
@@ -115,5 +116,17 @@ class GeneratorsServiceProvider extends ServiceProvider
         });
 
         $this->commands('command.crud.view');
+    }
+
+    /**
+     * Register the crud:lang command.
+     */
+    protected function registerLangGenerator()
+    {
+        $this->app->singleton('command.crud.lang', function ($app) {
+            return $app[Commands\CRUD\LangMakeCommand::class];
+        });
+
+        $this->commands('command.crud.lang');
     }
 }

@@ -2,42 +2,11 @@
 
 namespace Jenky\LaravelGenerators\Commands\CRUD;
 
-use Illuminate\Config\Repository as Config;
-use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
+use Jenky\LaravelGenerators\Commands\Generators\FileGenerator;
 
-class ViewMakeCommand extends Command
+class ViewMakeCommand extends FileGenerator
 {
-    /**
-     * The filesystem instance.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
-     */
-    protected $files;
-
-    /**
-     * The filesystem instance.
-     *
-     * @var \Illuminate\Config\Repository
-     */
-    protected $config;
-
-    /**
-     * Create a new controller creator command instance.
-     *
-     * @param \Illuminate\Filesystem\Filesystem $files
-     *
-     * @return void
-     */
-    public function __construct(Filesystem $files, Config $config)
-    {
-        parent::__construct();
-
-        $this->files = $files;
-        $this->config = $config;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -79,16 +48,6 @@ class ViewMakeCommand extends Command
     }
 
     /**
-     * Get the desired resource name from the input.
-     *
-     * @return string
-     */
-    protected function getNameInput()
-    {
-        return $this->argument('name');
-    }
-
-    /**
      * Get the desired path from the input.
      *
      * @return string
@@ -122,20 +81,6 @@ class ViewMakeCommand extends Command
         return $this->config['crud-generator.view_path']
             ? Str::finish($this->config['crud-generator.view_path'], '/').$view
             : Str::finish(__DIR__.'/../../../stubs/CRUD/views', '/').$view;
-    }
-
-    /**
-     * Build the directory for the view if necessary.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    protected function makeDirectory($path)
-    {
-        if (!$this->files->isDirectory($path)) {
-            $this->files->makeDirectory($path, 0777, true, true);
-        }
     }
 
     /**

@@ -1,0 +1,26 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | DummyResourceStudly Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used for various messages and places
+    | that we need to display to the user.
+    |
+    */
+
+    'DummyResourceName' => 'DummyResourceStudly',
+    'DummyResourceNamePlural' => 'DummyResourceStudlyPlural',
+    'list' => 'DummyResourceStudly List',
+    'empty' => 'There are no DummyResourceName.',
+    'not_found' => 'The requested DummyResourceName could not be found.',
+    'create' => 'Create New DummyResourceStudly',
+    'update' => 'Update DummyResourceStudly',
+    'created' => 'DummyResourceStudly has been created.',
+    'updated' => 'DummyResourceStudly has been updated.',
+    'deleted' => 'DummyResourceStudly has been deleted.',
+
+];
