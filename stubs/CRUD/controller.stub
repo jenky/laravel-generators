@@ -69,7 +69,7 @@ class DummyClass extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(DummyModelClass $DummyResourceName, $id)
+    public function edit(DummyResourceClass $DummyResourceName, $id)
     {
         $DummyResourceName = $DummyResourceName->findOrFail($id);
 
@@ -84,7 +84,7 @@ class DummyClass extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DummyModelClass $DummyResourceName, $id)
+    public function update(Request $request, DummyResourceClass $DummyResourceName, $id)
     {
         if ($DummyResourceName->create($request->all())) {
             flash()->success(trans('DummyResourceName.updated'));
