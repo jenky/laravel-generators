@@ -108,7 +108,7 @@ class DummyClass extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        DummyResourceName::destroy($id);
+        DummyResourceClass::destroy($id);
 
         if ($request->ajax()) {
             return response()->json([
