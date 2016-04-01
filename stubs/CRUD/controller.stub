@@ -87,7 +87,9 @@ class DummyClass extends Controller
      */
     public function update(Request $request, DummyResourceClass $DummyResourceName, $id)
     {
-        if ($DummyResourceName->create($request->all())) {
+        $DummyResourceName = $DummyResourceName->findOrFail($id);
+
+        if ($DummyResourceName->update($request->all())) {
             flash()->success(trans('DummyResourceName.updated'));
         } else {
             flash()->error(trans('error.whoops'));
