@@ -135,7 +135,7 @@ class ViewMakeCommand extends FileGenerator
 
         $routeName = $this->option('route')
             ? Str::plural($this->option('route'))
-            : $name;
+            : Str::plural($name);
 
         $stub = str_replace(
             'DummyRouteName', $routeName, $stub
