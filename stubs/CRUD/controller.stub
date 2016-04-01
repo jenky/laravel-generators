@@ -18,7 +18,7 @@ class DummyClass extends Controller
     {
         $DummyResourceNamePlural = $DummyResourceName->paginate();
 
-        return view('DummyViewPath.index', compact($DummyResourceNamePlural));
+        return view('DummyViewPath.index', compact('DummyResourceNamePlural'));
     }
 
     /**
