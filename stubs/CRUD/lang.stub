@@ -15,7 +15,7 @@ return [
     'DummyResourceName' => 'DummyResourceStudly',
     'DummyResourceNamePlural' => 'DummyResourceStudlyPlural',
     'list' => 'DummyResourceStudly List',
-    'empty' => 'There are no DummyResourceName.',
+    'empty' => 'There are no DummyResourceNamePlural.',
     'not_found' => 'The requested DummyResourceName could not be found.',
     'create' => 'Create New DummyResourceStudly',
     'update' => 'Update DummyResourceStudly',
