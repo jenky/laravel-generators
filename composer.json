@@ -31,6 +31,16 @@
             "Jenky\\LaravelGenerators\\Test\\": "tests"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Jenky\\LaravelGenerators\\GeneratorsServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "phpunit"
     }
